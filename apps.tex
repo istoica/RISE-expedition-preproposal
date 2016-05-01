@@ -1,0 +1,66 @@
+\section{Application Examples}
+
+In this section, we discuss several examples of potential applications that will be enabled by the ability to make secure, real-time decisions on live data. We characterize these applications by using the three decision attributes described in the previous section: decision quality (which captures the ability to make complex, accurate, and robust decisions), decision latency, and security.
+
+Table \ref{table:apps} shows the characteristics of ten such applications. These applications have a broad set of requirements across various attributes. Next, we describe three of these applications examples in more detail.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+{\bf Applications} & {\bf Quality} & \multicolumn{2} {|c|}{\bf Latency} & {\bf Security} \\\cline{3-4}
+& & {\bf Decision} & {\bf Update} & \\\hline 
+Zero-time defense & complex, accurate, robust & sec & sec & privacy, integrity \\\hline
+Parking assistant & complex, robust & sec & sec & privacy \\\hline
+Disease discovery & complex, acurate & min & hours & privacy, integrity \\\hline
+IoT (smart buildings) & complex, robust & sec & min/hours & privacy, integrity \\\hline
+Earthquake warning & complex, accurate, robust & ms & min & integrity \\\hline
+Manufacturing pipeline & complex, accurate, robust & sec/min & min & confidentiality, privacy \\\hline
+Fraud detection & complex, accurate & ms & min & privacy, integrity \\\hline
+``Fleet'' driving & complex, accurate, robust & sec & sec & privacy, integrity \\\hline
+Virtual companion & complex, robust & sec & min/hour & integrity \\\hline
+Video QoS & complex & ms/sec & min & privacy, integrity \\\hline
+\end{tabular}
+\end{center}
+\vskip -0.15in
+\caption{\small{Example of applications, and their characteristics, that would be enabled by a platform for secure, real-time decisions on live data.}}
+\label{table:apps}
+\end{table}
+
+\subsection{Zero-time defense}
+
+A worm can infect millions of machines in seconds (e.g., at the peak, the SQL Slammer worm was scanning more than 55 million IP addresses per second. A possible solution to address this problem would monitor the traffic of hosts and users in the Internet, detect worms in real time, and defend from these attacks by patching the software or installing rules at firewalls in real time. While there have been similar proposals in the past, none of them has been widely deployed. We believe that their failure is due to their lack of one or more of the following three properties:
+
+\bi
+\item {\bf Quality}: Decisions need to be robust and accurate. A system with high false positives or negatives would be unusable, as it would either fail to detect attacks, or impair legitimate services by wrongly classifying them as attacks.
+\item {\bf Latency}: Not only the decision latency but also the update latency should ideally be in the sub-second range. Indeed, each virus has a slightly different signature so one needs to quickly derive and update the model. 
+\item {\bf Security}: Strong security is key. In particular, without strong privacy users and organizations would not allow their traffic to be monitored, and without providing data and computation integrity, these algorithms would be susceptible themselves to attacks.
+\ei
+
+\subsection{Intelligent Parking Assistant}
+
+In many congested downtowns or during sport or concert events it is notoriously hard to find parking spots. This application will alleviate this problem by using a fleet of drones as well as other video feeds to detect available street parking in real time and direct the cars to the available slots via a mobile application. 
+
+Such an application will need to coordinate the drones to efficiently search for parking spots in an area, make sure that the parking spots are indeed available (e.g., there are no signs that precludes parking), identify the type of parking space (e.g., handicap, time limited, payed), and then coordinate cars so that each of them is directed to the closest parking spot available that satisfies the driver constraints (e.g., time duration, non-handicap parking). Of course, the application should also avoid sending multiple cars to the same parking spot. Thus, such an application should has the following requirements:
+
+\bi
+\item {\bf Quality}: Decisions are complex and need to be robust. In particular, one needs to correctly identify the parking spots that are indeed available in a variety of lighting conditions, signs that might be hidden by vegetation, and imperfect real-life conditions, such as cars being illegally parked.
+\item {\bf Latency}: The model capturing the parking spot availability must be updated at second level granularity as parking spots become (un)available or traffic is re-routed, which often happens during events. Decisions should happen at similar granularity as they need to reflect these changes.
+\item {\bf Security}: Providing privacy is a big concern, as we want to avoid the risk of turning this application into a surveillance system.
+\ei
+
+\subsection{Infectious Disease Discovery}
+
+Over the past few years we have witnessed the emergence of several aggressive infectious diseases, such as Ebola and Zika, that have claimed lives, spread quickly, and have been difficult to contain. 
+
+Now, imagine  we have the ability to test cheaply a person for a given infectious diseases in minutes, or even seconds. That would fortify our ability to defend against these diseases, as it would allow us to perform effective quarantine at borders (e.g., everyone who is flying in from an infected region can be tested in minutes or seconds before entering the country) and monitor the spread of the disease in real-time, which is especially important for airborne diseases.
+
+The emergence of mobile testing devices such as Nanopore's MinION is a step towards achieving this vision. MinION can analyze DNA, RNA, proteins, or small molecules in hours at a cost of several hundred dollars per test. Weighing less than 100g, MinION can be connected to any computer, which makes it a truly portable testing station. Some of us are already working with Dr. Charles Chiu from UC of San Francisco to develop tests to identify Zika virus using Nanopore’s MinION . 
+
+Given the expected improvements in the analysis times and test costs reductions over the next couple of years, RISE would enable a wealth of new applications that can provide effective tracking of the diseases in real-time, infectious disease risk assessments, as well as accurate and quick testing. These applications will share the following characteristics:
+
+\bi
+\item {\bf Quality}: Decisions need to be robust as they often deal with noisy samples. Inaccurate testing results could have serious implications on the people who are tested, and may lead to suboptimal quarantine decisions.  
+\item {\bf Latency}: Models of how a disease spreads, or of the infection risks of the inhabitants in a given area, or of the risk that certain incoming visitors are infected should be updated hourly or faster. Decisions of whether to test a particular person, or whether the test was positive or negative should ideally happen on the order of minutes, even seconds.
+\item{\bf Security}: Maintaining the privacy and confidentiality of the results is critical for both the people who are tested and for the population in general. Leaking information, especially inaccurate information, could cause widespread fears.
+\ei

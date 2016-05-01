@@ -1,0 +1,303 @@
+\documentclass [10pt]{article}
+\usepackage{subfigure,graphics,graphicx,color,cite,multirow,rotating,epsfig}
+%\usepackage[linesnumbered,figure,commentsnumbered]{algorithm2e}
+%\usepackage[small]{titlesec}
+\usepackage{microtype,caption}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand*\familydefault{\sfdefault} 
+\usepackage{outlines}
+\usepackage{setspace}
+
+%\usepackage[dvips]{color}
+%\usepackage[xdvi]{graphicx}
+
+% \usepackage{oudraft}
+
+\usepackage{color}
+%\usepackage[pdfborder={0 0 0}]{hyperref}
+
+% To make the FIXMEs go away, comment out this line...
+\newcommand{\fixme}[1]{{\bf\textcolor{red}{[#1]}}}
+% ...and uncomment this one.
+%\newcommand{\fixme}[1]{}
+\newcommand\eat[1]{}
+
+% Have a margin of one inch on each side
+\oddsidemargin  0.0in
+\evensidemargin 0.0in
+\topmargin      0.0in
+\headheight     0.0in
+\headsep        0.0in
+\textheight     9in
+\textwidth      6.5in
+\topskip        0.0in
+\footskip       0.15in
+\marginparwidth 0in
+\marginparsep   0in
+
+% peanut gallery comments
+%
+%
+% NOTE: Comment *in* the line below if you want a draft with no red comments.
+% NOTE: Doing so may replace some of the red comments with 
+%       extra spaces or newlines.
+%\def\noeditingmarks{}
+%
+\newcommand{\textred}[1]{\textcolor{red}{#1}}
+\ifx\noeditingmarks\undefined
+   \newcommand{\pgwrapper}[2]{\textred{#1: #2}}
+\else
+   \newcommand{\pgwrapper}[2]{}
+\fi
+\newcommand{\note}[1]{\pgwrapper{NOTE}{#1}}
+\newcommand{\sjs}[1]{\pgwrapper{SJS}{#1}}
+\newcommand{\tk}[1]{\pgwrapper{TK}{#1}}
+
+% end peanut gallery comments
+
+\newenvironment{Itemize}%
+{\begin{itemize}%
+\setlength{\itemsep}{0pt}%
+\setlength{\topsep}{0pt}%
+\setlength{\partopsep}{0pt}%
+\setlength{\parskip}{8pt}}%
+{\end{itemize}}
+\setlength{\leftmargini}{9pt}%
+
+\newenvironment{Enumerate}%
+{\begin{enumerate}%
+\setlength{\itemsep}{0pt}%
+\setlength{\topsep}{0pt}%
+\setlength{\partopsep}{0pt}%
+\setlength{\parskip}{0pt}}%
+{\end{enumerate}}
+\setlength{\leftmargini}{9pt}%
+
+\newcommand{\name}{{FII}\xspace}
+\newcommand{\dspace}{\baselineskip 25 pt}       % double spacing command
+\newcommand{\sspace}{\baselineskip 14 pt}       % single spacing command
+\newcommand{\xref}[1]{\S~\ref{#1}}
+\newcommand{\pxref}[1]{(\xref{#1})}
+\newcommand{\eg}{{\it e.g., }}
+\newcommand{\ie}{{\it i.e., }}
+\newcommand{\bi}{\begin{Itemize}}
+\newcommand{\ei}{\end{Itemize}}
+
+
+\hyphenation{trace-route}
+
+\newtheorem{theorem}{Theorem}
+%\newcommand{\bi}{\begin{itemize*}}
+%\newcommand{\ei}{\end{itemize*}}
+\newcommand{\im}{\item}
+\begin{document}
+\pagestyle{empty}
+
+
+
+\newpage
+
+
+\begin{center}
+{\Large {\bf Secure, Real-Time Decisions on Live Data}}
+\end{center}
+
+{%\large
+\setstretch{1.3}
+{\bf Intellectual Merit:} 
+
+{\bf Intellectual Merit:}  Today, virtually every organization collects an ever increasing amount of data with one goal in mind:  extract value out of this data. The past decade has seen huge advances in big data, with a myriad of analytics systems, algorithms, and applications being dveeloped and deployed at scale. These advances led to the creation of new business models (e.g., Facebook, Twitter), disruption of existing industries (e.g, Amazon, Uber, and Airbnb), and rapid progress in research (cancer genomics, astronomy, social sciences).
+
+Despite these impressive advances, we are still far from realizing the full promise of big data. With a few notable exceptions, most companies struggle with unlocking the value from their data. As such, there is a huge gulf between the existing state-of-affairs and the ``holy grail'' of every organization when it comes to data: make intelligent decisions to improve everything from its business processes to services and products, as well as creating new products and services. 
+
+But just making decisions on data is not enough. What will truly revolutionize big data processing is {\em making these decisions in real time at global scale on the latest available data, while preserving the privacy of users and ensuring application security}. Indeed, slow decisions on stale data are of limited value, if any. Similarly, the lack of privacy and security can lead to the demise of a service or product. 
+
+The ability to make decisions on live data will fundamentally change the way we interact with the physical word, and accelerate the scientific discoverys by enabling rapid exploration and testing of a solution space. To realize this vision we will need to make significant advances in three areas:
+\bi
+\item  {\em Systems:} We will design and build cluster computing platforms that will provide orders-of-magnitude lower latency and higher throughput than existing platforms, such as Spark. 
+
+\item {\em Machine Learning:} We will build new on-line machine learning algorithms that are robust to noisy data and unforeseen inputs. Robust algorithms are necessary to enable automated decisions for critical applications, such as zero-time defense against Internet attacks, or coordinating a fleet of autonomous cars or drones. 
+
+\item {\em Security:} We will develop new applications and systems that ensure users' privacy and applications' security without impacting either their functionality or performance. In fact, providing strong privacy will help increase the value delivered by these applications, as it will incentivize more users to use use them. 
+\ei
+
+%While there exist a few solutions that make real-time decisions on live data, notably in the domains of high-frequency trading and ad bidding, these solutions are highly specialized (on-off), and have taken years and huge resources to develop. The goal of the proposed work is to dramatically lower the barrier of building such solutions by developing a general-purpose secure real-time decision stack (SRDS). SRDS will enable many more people to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
+
+{\bf Boarder Impact:} Enabling real-time decisions on live data will lead to a phase transition in data processing, similar to the transition from small to big data. Like big data led to dramatically better results, even when using traditional algorithms, we believe that real-time processing on live data will lead to qualitatively superior results, by enabling rapid exploration of the search space and continuous adaptation to changes in the environment (e.g., enabling large-scale, reinforced learning in real time). 
+
+Furthermore, we aim to develop a suite of software tools and algorithms which will dramatically lower the barrier for organizations and indiviudals alike to build decision and predictive analytics applications. Like Spark and Mesos before, we hope these tools will broaden research participation, allowing students and researchers at all schools to perform sophysticated data analysis and contribute to improving these tools. Lastly, the participants in this project will work directly to increase the participation of under-represented populations in engineering and scientific disciplines through their leadership effort in the community (e.g., via meetups, tech camps, Massive Open Online Courses) and on campus.
+
+
+% do not get rid of the following linebreak!!
+
+}
+\newpage
+
+\setcounter{section}{0}
+
+
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\begin{outline}
+\section{Introduction}
+
+\subsection{Our Vision}
+
+Today, virtually every organization collects an ever increasing amount of data with the belief that (1) more data equates more ``value'', and (2) more data makes it easier to unlock this value. The former belief has been engendered by companies like Google and Facebook that have successfully leveraged big data to create new, innovative businesses, and companies like Amazon, Uber, and Airbnb that have built data products to disrupt existing industries. The latter belief was originally emphasized by the now famous quote attributed to Google's Peter Norvig ``more data beats better algorithms'', and more recently by the rapid advances in Deep Learning. 
+
+Over the past decade, the need for processing larger and larger amounts of data has led to the development of a plethora of cluster computing frameworks--including Hadoop, Spark, Storm, Impala, just to name a few--that have dramatically improved our ability to perform advanced analytics on big data. In turn, this allowed organizations to uncover insights not available before, and use these insights to build successful data products, such as personalized recommendations, advertisement targeting, drug discovery, and fitness applications.
+
+Despite these impressive advances, we are still far from realizing the full promise of big data. With a few notable exceptions, most companies struggle with unlocking the value from their data. As such, there is a huge gulf between the existing state-of-affairs and the ``holy grail'' of every organization when it comes to data: make intelligent decisions to improve everything from its business processes to services and products, as well as creating new products and services. 
+
+But just making decisions on data is not enough. What will truly revolutionize big data processing is making these decisions in real time at global scale on the latest available data, while preserving the privacy of users and ensuring application security. Indeed, slow decisions on stale data are of limited value, if any. Similarly, the lack of privacy and security can lead to the demise of a service or product.
+
+While there exist a few solutions that make real-time decisions on live data, notably in the domains of high-frequency trading and ad bidding, these solutions are highly specialized (on-off), and have taken years and huge resources to develop. The goal of the proposed work is to dramatically lower the barrier of building such solutions by {\bf developing a general-purpose secure real-time decision stack (SRDS)}. SRDS will enable virtually everyone to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
+
+\subsection{Problems to be Solved}
+
+Despite existing examples such high-frequency trading and real-time ad targeting, making real-time decisions on live data is daunting. Indeed, these decisions need to simultaneously achieve high quality, low latency, and be secure. 
+
+By {\em quality}, we mean the ability to make non-trivial decisions that are accurate and robust. Without a human in the loop, we need to make sure that these decisions are both {\em accurate} and {\em robust} in the presence of noisy data and unforeseen inputs. Ensuring accuracy and robustness in an open environment where decisions are typically implemented using machine learning algorithms is hard. Since these are fundamentally statistic algorithms, non-zero false negatives and positives are inherent. In addition,  it is virtually impossible to predict how the models computed by these  algorithms will behave in the presence of noisy inputs, or inputs for which the model has been never trained for. Addressing these challenges would require fundamentally new approaches, such as combining machine learning with control theory techniques to guarantee worse case behaviors.
+
+When it comes to {\em latency} we want the ability to provide millisecond level decisions on models that are updated every few seconds. For example, we want to detect and model a virus attack in the Internet within seconds and pach the end-hosts and firewalls immediately to stop the attack. To avhieve thsi we need to develop systems to analyze large amounts of data that provide 100x lower response times and 1,000x higher througput than existing data processing systems, such as Spark. 
+
+When it comes to data processing, {\em Security} is ever more important, and its importance is only going to increase in the future. Security breaches and personal information leakages can undermine the trust of the users in a service or application. In addition, more of these applications and services are being deployed in the public clouds, such as Amazon Web Services, Azure, or Google Compute Engine. As such, providing both data and computation integrity are critical to protect and secure these services against malicious cloud providers, or tenants that share the same cloud infrastructure. Providing strong security without compromissing the functionality and the performance of a real-time service raises a slew of hard challenges on which we are going to focus.
+
+Finally, all existing systems that support decisions on live data (e.g., navigation systems, self-driving cars, high-frequency trading, and ad targeting) are {\em on-off}, and have taken years, and (in some cases) billions of dollars to build. If we were to enable the next 100 applications that make real-time decisions we would have to develope a comprehensive set of systems and tools, similarly to the Hadoop stack which enabled big data annalytics a decade ago.
+
+
+\subsection{Why now?}
+
+While supporting secure real-time decisions on live data raises daunting challenges, we believe the time is ripe for addressing them, and we are in a unique position to do so. Recent hardware trends will enable the design of a new generation of cluster computing frameworks with dramatically higher performance and stronger security than the existing solutions: 
+
+\bi
+\item The proliferation of hardware enclaves, which are now part of both Intel and ARM chips, enable one to securely run arbitrary code on an untrusted computer system.
+
+\item The emergence of new architectures that tightly integrate CPU and FPGA/GPU. For example, the latest Intel Xeon processor integrates CPU and FPGA on the same chip, and numerous vendors are working on systems in which  CPUs and GPUs share the memory via a High Bandwidth Memory bus.  
+
+\item With the advent of RISC V, the first open instruction set architecture, it is easier than ever to build custom chips that optimize performance for various workloads and integrate new security features.
+
+\item The emergence of the next generation of fast persistent storage systems. Just a few months ago, Intel and Micron have announced 3D Xpoint, a storage technology that can achieve the density of SSDs while providing latencies close to those of DRAM. Systems based on these new technologies will be released later this year, and have the potential to revolutionize the way we built data processing systems.
+\ei
+
+\input{model.tex}
+
+\input{challenges.tex}
+
+\input{apps.tex}
+
+\input{related.tex}
+
+\input{research.tex}
+
+\input{others.tex}
+
+\newpage
+\pagestyle{plain}
+
+\setcounter{page}{1}
+
+
+\bibliographystyle{abbrv} 
+\bibliography{bibinfo}
+
+\newpage
+\pagestyle{plain}
+
+\setcounter{page}{1}
+
+
+\section*{Project Personnel}
+
+
+\center{\Large All project personnel are associated with the University of California at Berkeley}
+
+~~
+
+\begin{enumerate}
+
+
+\item Maneesh Agrawala  (Department of Electrical Engineering and Computer Sciences)
+
+\item Alex Bayen (Department of Civil and Environmental Engineering)
+
+\item Armando Fox (Department of Electrical Engineering and Computer Sciences)
+
+\item Michael Franklin (Department of Electrical Engineering and Computer Sciences)
+\item Michael Jordan (Department of Statistics and Department of Electrical Engineering and Computer Sciences)
+
+\item Anthony Joseph (Department of Electrical Engineering and Computer Sciences)
+
+
+\item Randy Katz (Department of Electrical Engineering and Computer Sciences)
+
+
+\item Dan Klein  (Department of Electrical Engineering and Computer Sciences)
+
+\item Nelson Morgan  (Department of Electrical Engineering and Computer Sciences)
+
+
+\item David Patterson (Department of Electrical Engineering and Computer Sciences)
+
+\item Sylvia Ratnasamy  (Department of Electrical Engineering and Computer Sciences)
+
+
+\item Scott Shenker (Department of Electrical Engineering and Computer Sciences)
+
+\item Dawn Song (Department of Electrical Engineering and Computer Sciences)
+
+
+\item Ion Stoica (Department of Electrical Engineering and Computer Sciences)
+
+
+\end{enumerate}
+
+
+\newpage
+
+\section*{Requirements}
+
+\subsection*{Content}
+
+\subsection*{Other Materials}
+
+\1 10 page project description, 1 page summary.
+
+\1 Describe the overarching vision and goal(s) of the proposed Expedition.  Describe the contributing research, education and knowledge transfer themes or components, emphasizing how “the whole” Expedition is greater than the sum of the individual theme or component parts.  Describe how the project will contribute to realization of the Expedition program goals (address all three as described in the II. Program Description section of this solicitation) and demonstrate the Expedition characteristics (addressing all four as described in the II. Program Description section of this solicitation).  Provide sufficient detail to allow assessment of the Intellectual Merit and Broader Impacts of the project and the necessity for support at the requested investment level.  
+
+\1 Leadership and collaboration. Describe the organizational structure of the Expedition, including plans for integrating and managing all organizations and individuals involved in all components of the Expedition to ensure the project goals are met.  Explain how collaboration across individuals and organizations will be assured.  Describe how effective collaboration will lead to enhanced project outcomes. 
+
+\1 Experimental systems or shared experimental facilities (where appropriate).  Describe the experimental system to be demonstrated and/or shared experimental facilities (\eg instruments, platforms, and testbeds) to be used or established and describe how these activities add value to the project.
+
+\1 One-page budget.  Provide a one-page budget summary for the full five year period.  This should be entered in Budget Year 1 in FastLane.  (Fastlane will automatically generate a cumulative budget that is identical to the full five-year budget you entered in Year 1.) The proposed budget should be consistent with the needs and complexity of the proposed activity. The budget justification should provide some information for each year of the full five-year period, showing how funds will be allocated to the project components during the start-up phase, and shared facilities that will be required (where necessary).
+
+\1 References Cited (two-page limit). 
+
+\1 Biographical Sketches (two-page limit per person).  
+
+\1 Lists of  Partner Institutions and Project Personnel. 
+
+
+\2 Partner Institutions. List all institutions and organizations for which there are corresponding project personnel. List all partner organizations at the time of submission of the preliminary proposal.  Organize the list of institutions involved in the Expedition into the following categories, as applicable: Academic Institutions (colleges, universities), National Laboratories, Federal Government, Industry, Non-Governmental Organizations, State and Local Government, International, and Other. For each category, list the partner institutions for that category in alphabetical order. 
+
+\2 Project Personnel. List all the personnel who have a role in the Expedition.  For each person listed, provide the first name, last name, and institution/organization. 
+
+\1 Projected Commitments by Source (one-page limit).  Provide a synopsis of institutional commitments for the proposed project, if any. {\bf none for us, I think}
+
+\1 {\bf Results of Prior Support for PIs and co-PI's (2 pages).  Provide information only for the PI(s) and each co-PI, for contributions to research and education in science and engineering over the past five years (from any funding source).  Include a brief statement of results of funded projects.}
+
+\1 Collaborators/Individuals with Conflicts of Interest.   Provide the names of all persons, participants and affiliates with potential conflicts of interest as specified in the NSF GPG. For each person, enter the first name, last name, and institution/organization.  For each person listed on the project personnel list, include all co-authors/editors and collaborators (within the past 48 months); list all graduate advisors and advisees; list all subawardees who would receive funds through the Expeditions award. 
+
+\1 {\bf No other items or appendices are to be included. Information pertaining to ``Current and Pending Support'', and ``Facilities, Equipment and Other Resources'' is not required for preliminary proposals and should not be included. Preliminary proposals containing items other than those required above will not be reviewed or considered for NSF funding.}
+
+
+
+\end{outline}
+
+
+\end{document}

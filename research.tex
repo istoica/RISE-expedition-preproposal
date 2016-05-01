@@ -1,0 +1,60 @@
+\section{Proposed Research}
+
+Table~\ref{table:new-work} summarizes the state-of-the-art of the decision systems today. On one hand, there are few successful systems that perform real-time decisions on live data, and those that do are special-purpose and very expensive to develop. On the other hand, the existing general purpose stacks fall short of providing support for such decisions, and they have weak security.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+{\bf System} & {\bf Quality} & {\bf Latency} & {\bf Security} & {\bf General Purpose}\\\hline 
+High Frequency Trading & High & Low & High & No \\
+Ad Targeting \& Bidding & & & & \\\hline
+Hadoop, Spark & Average & Average & Weak & Yes\\
+                         &               & (slow updates) & & \\\hline
+{\bf Proposed Work} & {\bf High} & {\bf Low} & {\bf High} & {\bf Yes} \\\hline
+\end{tabular}
+\end{center}
+\vskip -0.15in
+\caption{\small{Comparison between state-of-the art decisions systems/stacks and proposed work.}}
+\label{table:new-work}
+\end{table}
+
+Next, we discuss the proposed work to provide platform, tools, and algorithms to support general purpose secure, real-time decisions on live data.  
+
+\subsection{Systems}
+
+To meet the performance and the functionality targets we need to build a new software stack. That software stack should at a minimum, in similarity with BDAS, enable developers to write sophisticated applications, including ML and graph processing. Furthermore, such a stack should achieve the following properties when compared to previous stacks such as BDAS, Spark, and Hadoop:
+
+\bi
+\item Provide similar functionality to Spark, i.e., enable developers to write sophisticated application, including ML and graph processing applications.
+\item Achieve 100x lower query latency, and 1,000x higher throughput.
+\item Provide fine-grain reads and writes to better support applications such as model serving and Deep Learning (which are not supported well in Spark).
+\ei
+
+To satisfy these requirements, we need to re-architect today's data computation engines, such as Spark. This includes parallelizing the control plane, supporting new computation models, besides the traditional Bulk Synchronous Protocol (BSP) model, and providing support for fine-grain updates. Increasing concurrency for both computation and access to storage while preserving the fault tolerance properties of existing cluster computing frameworks will require new techniques and algorithms.
+
+We intend to build an abstraction that combines the best of today's big data storage abstractions, such as HDFS, pub-sub systems, such as Kafka, and NoSQL serving layers, such as Cassandra. This would obviate today's need for transferring data between different storage layers. The system would be optimized to be able to handle read-heavy workloads, which existing systems such as HBase are poor at (due to structures such as LSM-trees). The system should be pluggable so that advanced logic can be added on top of the serving layer, enabling advanced machine learning predictions. 
+
+\subsection{Security} 
+
+Our goal is to provide privacy, confidentiality, and integrity without impacting performance or functionality. This goal is hard. Attackers have become very skilled, and traditional security approaches no longer suffice. These approaches assume that a part of the software stack (e.g., the operating system, the language runtime) are trusted and bug-free, and enforce that a higher level application cannot be attacked. Attackers have managed to bypass such techniques sometimes obtaining root access on machines.
+
+We aim to build a security platform that preserves the privacy and integrity of data at a service provide against any software attacks. Even if an attacker obtains root access on the server machines, the attacker cannot extract the data or modify the data or the computation on the data. This strong security guarantee automatically addresses a large class of attackers.
+
+Providing such strong security guarantees not only helps organizations preserve the data value and protect their reputation, but likely, it can increase this value. More users or organizations will likely want to participate in a certain service if they have the guarantee that their data will remain private or confidential, and they can trust the interaction with this service.
+                                               
+To provide such strong security we are planning to leverage the recent advances in hardware and secure algorithm design. On one hand, new Intel and ARM chips have started to include hardware enclaves which allows one to securely run arbitrary code that is fully protected against malicious applications, and even against malicious operating system.  On the other hand, the advancements in performing computation on encrypted data allows us to provide privacy and confidentiality to non-trivial applications, such as databases and web applications, without hardware support. 
+
+We plan to build new systems that combine the strengths of hardware enclaves and computations on encrypted data while obviating their weaknesses, i.e., systems that provide strong security without impacting the decision's latency or quality. We believe that to achieve this goal we will need to innovate on the architecture of CPUs, and that RISC-V provides the ideal infrastructure to perform this research.
+
+\subsection{Machine Learning} 
+
+Automated decisions required by applications such as zero-time defense, agile robotic systems, and distributed sensor networks provides a tremendous opportunity for machine learning. As the role of machine learning expands to these ambitious applications, however, it is critical these new technologies be safe and reliable.  Failure of such systems could have severe social and economic consequences including the potential loss of human life. How can we guarantee that our new data-driven automated systems are robust?
+
+Despite its tremendous success, machine learning remains a delicate technology. It can take dozens of experts to train, calibrate, and maintain a single machine learning pipeline. More troubling, in both scientific and industrial applications, it is never clear how a machine learning system will truly perform on unseen data until the model goes live in a mission critical environment. In order to make machine learning more robust, several important questions must be addressed:
+
+{\em Robust methods for optimization:}  (Note this is in stark contrast to robust optimization, which is about modeling, not about methods).    While the theoretical study of optimization has largely focused on ``faster is better'' (along with the precise characterization of rates of convergence), it is often the case that practical considerations (including noise tolerance, parallelizability and communication constraints, asynchronous updating) make such improvements moot (e.g. the theoretically fastest methods such as ``acceleration'' are brittle in practice, for a variety of reasons). Can we provide scalable optimization procedures, which are provably accurate when taking into account modern considerations such as noise tolerance and parallelization with realistic communication models? Furthermore, can we also provide better procedures for non-convex optimization, both provably and in practice? Non-convex optimization procedures are widely used in deep learning, and effective parallel algorithms remain elusive for these methods.
+
+{\em Modeling uncertainty:} In order to make reliable real-time decisions, we must understand how a machine learning system will perform when it is released in the wild.  It is critical that the models are designed to be robust to perturbations that are not in the training data.  In controls, this sort of uncertainty is managed at design time: a worst-case uncertainty is place in the loop with the controller and the controller is optimized to reject these unknown disturbances.  For machine learning rather than such worst-case approaches, we lean on randomness and hope the unseen data is identically distributed to that in our laboratory.  Adapting the techniques from robust control, is it possible to train machine-learning systems to perform at a high level, yet be robust to unforeseen aberrations in the real world data?  How can we model such uncertainty to not overly reduce performance?  And can we design adaptivity into our learning systems so that they can correct for changes in data distributions after they have been released?
+
+{\em Data-driven Dynamics:}  What is the appropriate granularity to incorporate fresh data into machine learning models?  In order to incorporate this fresh data, we must understand how time-varying models affect performance and reliability.  In machine learning, dynamics are typically integrated into models as an afterthought, not in a principled way.  For example, in recurrent neural networks, dynamical systems are unrolled and treated like feed-forward models.  The fundamental notions of feedback, stability, and sensitivity are part of the paradigm, and therefore not considered.  On the other hand, tools from dynamical systems rely on well-prescribed differential/difference equations models.  Our understanding of how to identify non-parametric, nonlinear dynamical systems is very limited.  How can we bridge the gap between the statistical tools of machine learning with the dynamics-centered techniques from control theory?
