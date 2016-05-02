@@ -1,6 +1,6 @@
-\subsection{Research Challenges }
+\section{Research Challenges }
 
-In this section we discuss the research challenges we will tackle as part of this proposal.
+In this section, we discuss the research challenges we plan to tackle as part of this proposal.
 
 
 \subsection{Real-time Decisions on Live Data} 
@@ -13,7 +13,7 @@ By accuracy, we mean the ability to minimize both false positives and negatives.
 
 Furthermore, decisions should be robust in the presence of noisy data or unforeseen inputs. For example, a system coordinating a fleet of drones will have to deal with the noisy inputs provided by the sensors of the drones (e.g., a blurry video feed during heavy rain). As another example, consider an application that aims to detect Internet attacks (e.g., viruses, worms). Since these attacks are continuously evolving, such an application will have to deal with unforeseen attacks.
 
-{\bf Latency}:  Ideally, one would like to minimize both the update and the decision/query latencies. However, there is a trade-off between these latencies.  In general, the more of the decision process we materialize in advance the faster the decision. Indeed, in settings where the space of decisions is finite one can precompute all possible decisions. This option will minimize the decision latency at the cost of the update latency.  At the other extreme, one can directly query the (raw) input data. In this case, the update latency is zero, but the decision latency will be much higher.  In~\cite{crankshaw15} we began to explore this tradeoff in greater detail and identifying mechanisms to dynamically trade-off these two latencies.
+{\bf Latency}:  Ideally, one would like to minimize both the update and the decision/query latencies. However, there is a trade-off between these latencies.  In general, the more of the decision process we materialize in advance the faster the decision. Indeed, in settings where the space of decisions is finite one can precompute all possible decisions. This option will minimize the decision latency at the cost of the update latency.  At the other extreme, one can directly query the (raw) input data. In this case, the update latency is zero, but the decision latency will be much higher.  In~\cite{Crankshaw15} we began to explore this tradeoff in greater detail and identifying mechanisms to dynamically trade-off these two latencies.
 
 {\bf Security}: To make increasingly better decisions, users and organizations amass even more data, leading to  disastrous confidentiality and privacy breaches when compromised. Hence, as the amount of data grows, the need for security and the impact of the lack of security expands as well. Security attacks have already reached vast amounts of private or confidential data~\cite{breaches2015}. For example, last year marked the largest theft of medical records to date when attackers stole tens of millions of medical records from two major health insurers, Anthem and Premera~\cite{AnthemBreach,AnthemLargest}. 
 %It is estimated that attackers stole records of 80 million people from Anthem, and records of 11 million people from Premera. 
@@ -24,6 +24,21 @@ Security breaches and personal information leakages can undermine the trust of t
 
 In addition, more of these applications and services are being deployed in public clouds, such as Amazon Web Services, Microsoft Azure, or Google CE. As such, providing both data and computation integrity are critical to protect and secure these services against concerns regarding malicious employees of cloud providers, or tenants that share the same cloud infrastructure. While ensuring these security properties is difficult, the real challenge is doing so while preserving the functionality and the performance of these applications.
 
-\subsection{One-off Solutions}
+\subsection{General Purpose Solution}
 
 Virtually all state-of-the-art systems~\cite{Agarwal14, Graepel10, Ganjam15}  we have discussed so far are custom, they have taken a long time to build, and their development was expensive, in some cases costing billion of dollars. Such is the case for search engines, navigation systems, self-driving cars, voice personal assistants, high-frequency trading, and ad targeting. To the extent there exists general platforms in this space, such as Spark or Hadoop, they only provide a solution to part of the problem. They do not  provide an end-to-end secure real-time decision stack. Looking forward, we believe there is the potential for an explosion of applications incorporating real-time decision making on live data. However, if this potential is to be realized, we would need to make it much easier to build and maintain such applications. 
+
+\subsection{Why Now?}
+
+While supporting secure real-time decisions on live data raises daunting challenges, we believe the time is ripe for addressing them, and we are in a unique position to do so. Recent hardware trends will enable the design of a new generation of cluster computing frameworks with dramatically higher performance and stronger security than the existing solutions: 
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item The proliferation of hardware enclaves, which are now part of both Intel and ARM chips, enable one to securely run arbitrary code on an untrusted computer system.
+
+\item The emergence of new architectures that tightly integrate CPU and FPGA/GPU. For example, the latest Intel Xeon processor integrates CPU and FPGA on the same chip, and numerous vendors are working on systems in which  CPUs and GPUs share the memory via a High Bandwidth Memory bus.  
+
+\item With the advent of RISC V, the first open instruction set architecture, it is easier than ever to build custom chips that optimize performance for various workloads and integrate new security features.
+
+\item The emergence of the next generation of fast persistent storage systems. Just a few months ago, Intel and Micron have announced 3D Xpoint, a storage technology that can achieve the density of SSDs while providing latencies close to those of DRAM. Systems based on these new technologies will be released later this year, and have the potential to revolutionize the way we built data processing systems.
+\end{itemize}
+

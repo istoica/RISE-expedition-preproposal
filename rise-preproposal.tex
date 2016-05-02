@@ -198,20 +198,6 @@ However, to enable these applications we need a new generation of systems, tools
 %Finally, all existing systems that support decisions on live data (e.g., navigation systems, self-driving cars, high-frequency trading, and ad targeting) are {\em on-off}, and have taken years, and (in some cases) billions of dollars to build. If we were to enable the next 100 applications that make real-time decisions we would have to develope a comprehensive set of systems and tools, similarly to the Hadoop stack which enabled big data annalytics a decade ago.
 
 
-\subsection{Why now?}
-
-While supporting secure real-time decisions on live data raises daunting challenges, we believe the time is ripe for addressing them, and we are in a unique position to do so. Recent hardware trends will enable the design of a new generation of cluster computing frameworks with dramatically higher performance and stronger security than the existing solutions: 
-
-\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-\item The proliferation of hardware enclaves, which are now part of both Intel and ARM chips, enable one to securely run arbitrary code on an untrusted computer system.
-
-\item The emergence of new architectures that tightly integrate CPU and FPGA/GPU. For example, the latest Intel Xeon processor integrates CPU and FPGA on the same chip, and numerous vendors are working on systems in which  CPUs and GPUs share the memory via a High Bandwidth Memory bus.  
-
-\item With the advent of RISC V, the first open instruction set architecture, it is easier than ever to build custom chips that optimize performance for various workloads and integrate new security features.
-
-\item The emergence of the next generation of fast persistent storage systems. Just a few months ago, Intel and Micron have announced 3D Xpoint, a storage technology that can achieve the density of SSDs while providing latencies close to those of DRAM. Systems based on these new technologies will be released later this year, and have the potential to revolutionize the way we built data processing systems.
-\end{itemize}
-
 \input{model.tex}
 
 \input{challenges.tex}
