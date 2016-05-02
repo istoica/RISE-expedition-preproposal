@@ -108,7 +108,7 @@
 \end{center}
 
 {%\large
-\setstretch{1.1}
+\setstretch{1.17}
 {\bf Intellectual Merit:}  In just ten short years, the development of the open source big data processing systems, such as Hadoop, Hive, Storm, and more recently Spark and Kafka have fundamentally transformed daily practices in business and science. These systems have enabled the creation of new business models (e.g., Facebook, Twitter), the disruption of existing industries (e.g, Amazon, Uber, and Airbnb), and rapid progress in scientific research (cancer genomics, astronomy, social sciences). 
 %\jmh{you'll need citations for the research to make NSF happy.  is there a Science or Nature paper that surveys big data in science?  i did a little search for Hadoop in Science and Nature on Google scholar and got a few hits like this: http://www.nature.com/nature/journal/v498/n7453/full/498255a.html}
 
@@ -187,9 +187,9 @@ However, to enable these applications we need a new generation of systems, tools
 
 \subsection{Problems to be Solved}
 
-Despite existing examples such high-frequency trading and real-time ad targeting, making real-time decisions on live data is daunting. Indeed, these decisions need to simultaneously achieve high quality, low latency, and be secure. 
+Despite existing examples such high-frequency trading and real-time ad targeting, making real-time decisions on live data is daunting. Indeed, these decisions need to simultaneously achieve high quality, low latency, and and strong security. 
 
-By {\em quality}, we mean the ability to make non-trivial decisions that are accurate and robust. Without a human in the loop, we need to make sure that these decisions are both {\em accurate} and {\em robust} in the presence of noisy data and unforeseen inputs. Ensuring accuracy and robustness in an open environment where decisions are typically implemented using machine learning algorithms is hard. Since these are fundamentally statistic algorithms, non-zero false negatives and positives are inherent. In addition,  it is virtually impossible to predict how the models computed by these  algorithms will behave in the presence of noisy inputs, or inputs for which the model has been never trained for. Addressing these challenges would require fundamentally new approaches, such as combining machine learning with control theory techniques to guarantee worse case behaviors.
+By {\em quality}, we mean the ability to make non-trivial decisions that are {\em accurate} and {\em robust} in the presence of noisy data and unforeseen inputs. Ensuring accuracy and robustness in an open environment with no human in the loop, and where decisions are typically implemented using machine learning algorithms is hard. Since these are fundamentally statistic algorithms, non-zero false negatives and positives are inherent. In addition,  it is virtually impossible to predict how the models computed by these  algorithms will behave in the presence of noisy inputs, or inputs for which the model has been never trained for. Addressing these challenges would require fundamentally new approaches, such as combining machine learning with control theory techniques to guarantee worse case behaviors.
 
 When it comes to {\em latency} we want the ability to provide millisecond level decisions on models that are updated every few seconds. For example, we want to detect and model a virus attack in the Internet within seconds and pach the end-hosts and firewalls immediately to stop the attack. To avhieve thsi we need to develop systems to analyze large amounts of data that provide 100x lower response times and 1,000x higher througput than existing data processing systems, such as Spark. 
 
@@ -202,7 +202,7 @@ Finally, all existing systems that support decisions on live data (e.g., navigat
 
 While supporting secure real-time decisions on live data raises daunting challenges, we believe the time is ripe for addressing them, and we are in a unique position to do so. Recent hardware trends will enable the design of a new generation of cluster computing frameworks with dramatically higher performance and stronger security than the existing solutions: 
 
-\bi
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
 \item The proliferation of hardware enclaves, which are now part of both Intel and ARM chips, enable one to securely run arbitrary code on an untrusted computer system.
 
 \item The emergence of new architectures that tightly integrate CPU and FPGA/GPU. For example, the latest Intel Xeon processor integrates CPU and FPGA on the same chip, and numerous vendors are working on systems in which  CPUs and GPUs share the memory via a High Bandwidth Memory bus.  
@@ -210,7 +210,7 @@ While supporting secure real-time decisions on live data raises daunting challen
 \item With the advent of RISC V, the first open instruction set architecture, it is easier than ever to build custom chips that optimize performance for various workloads and integrate new security features.
 
 \item The emergence of the next generation of fast persistent storage systems. Just a few months ago, Intel and Micron have announced 3D Xpoint, a storage technology that can achieve the density of SSDs while providing latencies close to those of DRAM. Systems based on these new technologies will be released later this year, and have the potential to revolutionize the way we built data processing systems.
-\ei
+\end{itemize}
 
 \input{model.tex}
 
@@ -237,92 +237,6 @@ While supporting secure real-time decisions on live data raises daunting challen
 \pagestyle{plain}
 
 \setcounter{page}{1}
-
-
-\section*{Project Personnel}
-
-
-\center{\Large All project personnel are associated with the University of California at Berkeley}
-
-~~
-
-\begin{enumerate}
-
-
-\item Maneesh Agrawala  (Department of Electrical Engineering and Computer Sciences)
-
-\item Alex Bayen (Department of Civil and Environmental Engineering)
-
-\item Armando Fox (Department of Electrical Engineering and Computer Sciences)
-
-\item Michael Franklin (Department of Electrical Engineering and Computer Sciences)
-\item Michael Jordan (Department of Statistics and Department of Electrical Engineering and Computer Sciences)
-
-\item Anthony Joseph (Department of Electrical Engineering and Computer Sciences)
-
-
-\item Randy Katz (Department of Electrical Engineering and Computer Sciences)
-
-
-\item Dan Klein  (Department of Electrical Engineering and Computer Sciences)
-
-\item Nelson Morgan  (Department of Electrical Engineering and Computer Sciences)
-
-
-\item David Patterson (Department of Electrical Engineering and Computer Sciences)
-
-\item Sylvia Ratnasamy  (Department of Electrical Engineering and Computer Sciences)
-
-
-\item Scott Shenker (Department of Electrical Engineering and Computer Sciences)
-
-\item Dawn Song (Department of Electrical Engineering and Computer Sciences)
-
-
-\item Ion Stoica (Department of Electrical Engineering and Computer Sciences)
-
-
-\end{enumerate}
-
-
-\newpage
-
-\section*{Requirements}
-
-\subsection*{Content}
-
-\subsection*{Other Materials}
-
-\1 10 page project description, 1 page summary.
-
-\1 Describe the overarching vision and goal(s) of the proposed Expedition.  Describe the contributing research, education and knowledge transfer themes or components, emphasizing how “the whole” Expedition is greater than the sum of the individual theme or component parts.  Describe how the project will contribute to realization of the Expedition program goals (address all three as described in the II. Program Description section of this solicitation) and demonstrate the Expedition characteristics (addressing all four as described in the II. Program Description section of this solicitation).  Provide sufficient detail to allow assessment of the Intellectual Merit and Broader Impacts of the project and the necessity for support at the requested investment level.  
-
-\1 Leadership and collaboration. Describe the organizational structure of the Expedition, including plans for integrating and managing all organizations and individuals involved in all components of the Expedition to ensure the project goals are met.  Explain how collaboration across individuals and organizations will be assured.  Describe how effective collaboration will lead to enhanced project outcomes. 
-
-\1 Experimental systems or shared experimental facilities (where appropriate).  Describe the experimental system to be demonstrated and/or shared experimental facilities (\eg instruments, platforms, and testbeds) to be used or established and describe how these activities add value to the project.
-
-\1 One-page budget.  Provide a one-page budget summary for the full five year period.  This should be entered in Budget Year 1 in FastLane.  (Fastlane will automatically generate a cumulative budget that is identical to the full five-year budget you entered in Year 1.) The proposed budget should be consistent with the needs and complexity of the proposed activity. The budget justification should provide some information for each year of the full five-year period, showing how funds will be allocated to the project components during the start-up phase, and shared facilities that will be required (where necessary).
-
-\1 References Cited (two-page limit). 
-
-\1 Biographical Sketches (two-page limit per person).  
-
-\1 Lists of  Partner Institutions and Project Personnel. 
-
-
-\2 Partner Institutions. List all institutions and organizations for which there are corresponding project personnel. List all partner organizations at the time of submission of the preliminary proposal.  Organize the list of institutions involved in the Expedition into the following categories, as applicable: Academic Institutions (colleges, universities), National Laboratories, Federal Government, Industry, Non-Governmental Organizations, State and Local Government, International, and Other. For each category, list the partner institutions for that category in alphabetical order. 
-
-\2 Project Personnel. List all the personnel who have a role in the Expedition.  For each person listed, provide the first name, last name, and institution/organization. 
-
-\1 Projected Commitments by Source (one-page limit).  Provide a synopsis of institutional commitments for the proposed project, if any. {\bf none for us, I think}
-
-\1 {\bf Results of Prior Support for PIs and co-PI's (2 pages).  Provide information only for the PI(s) and each co-PI, for contributions to research and education in science and engineering over the past five years (from any funding source).  Include a brief statement of results of funded projects.}
-
-\1 Collaborators/Individuals with Conflicts of Interest.   Provide the names of all persons, participants and affiliates with potential conflicts of interest as specified in the NSF GPG. For each person, enter the first name, last name, and institution/organization.  For each person listed on the project personnel list, include all co-authors/editors and collaborators (within the past 48 months); list all graduate advisors and advisees; list all subawardees who would receive funds through the Expeditions award. 
-
-\1 {\bf No other items or appendices are to be included. Information pertaining to ``Current and Pending Support'', and ``Facilities, Equipment and Other Resources'' is not required for preliminary proposals and should not be included. Preliminary proposals containing items other than those required above will not be reviewed or considered for NSF funding.}
-
-
 
 \end{outline}
 
