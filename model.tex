@@ -1,4 +1,4 @@
-\subsection{System Model and Scope}
+\subsection{System Model and Research Scope}
 
 
 Figure~\ref{figure:model-and-decision}(a) shows the system model we are considering in this project. Endpoints (e.g., users, sensors, drones)  continuously gather and send data to an instance of a Secure Real-time Decision Stack (SRDS). Endpoints can be distributed worldwide, while SRDS is typically hosted in a private or public datacenter with high connectivity to the Internet. SRDS updates a model as it receives new data from endpoints, and either pushes decisions to endpoints, or provides a pull interface to provide decisions when prompted. An example of a system pushing decisions is a navigation system that continuously updates driving directions based on the current traffic information, while an example of a pull decision system  is a fraud detection system that makes a decision whenever a transaction is performed.
@@ -8,11 +8,11 @@ Figure~\ref{figure:model-and-decision}(a) shows the system model we are consider
 \center{
 \includegraphics[scale=0.6]{figures/model-and-decision}
 }
- \caption{\small{(a) High-level SRDS architecture. (b) Typical decision system.}}
+ \caption{\small{(a) SRDS system model. (b) Typical decision system.}}
   \label{figure:model-and-decision}
 \end{figure}
 
-Figure~\ref{figure:model-and-decision}(b) illustrates a simple decision system. At the high level, decisions are based on the data entering the system. In addition, the decisions can be impacted by the outcomes of the previous decisions. We call these systems ``feedback-based decision systems''.
+Figure~\ref{figure:model-and-decision}(b) illustrates a simple decision system, which can be implmented by SRDS. At the high level, decisions are based on the data entering the system. In addition, the decisions can be impacted by the outcomes of the previous decisions. We call these systems ``feedback-based decision systems''.
 
 The decision process consists of two stages. In the first stage, the raw data is transformed into an intermediate representation. A classic example of an intermediate representation is a model trained on the raw data. The second stage is where the decision actually happens. There are two types of decisions: manual and automated. With manual decisions, there is a human in the loop that queries the intermediate state (e.g., model) to make decisions, while with automated decisions there is no human in the loop.
 
@@ -29,6 +29,6 @@ For these reasons, in this proposal we will be primarily focusing on building an
 
 %{\bf Decisions vs. Actions vs. Hints:} We are using words ``decision'', ``action'', and ``hint'' interchangeably. In particular, ``decision'' also covers the case in which SRDS instructs an endpoint to take a particular action (e.g., changing the driving direction of an autonomous car), and the case in which it provides hints which the endpoint may choose to ignore (e.g., let a driver know about a better available route).    
 
-{\bf Scope of Applicability:} We have chosen to focus on supporting secure, real-time decisions on live data, as it is our belief this is the next big challenge in big data processing, and has the ability to fundamentally change the way we build intelligent systems. That being said, we expect the techniques we develop in this work to have a much broader, and even more immediate, applicability, by handling other use cases, such as decisions on historical data, high throughput interactive query workloads, low latency streaming, and secure big data processing.
+{\bf Scope of Applicability:} We have chosen to focus on supporting secure, real-time decisions on live data, as it is our belief this is the next big challenge in big data processing, and has the ability to fundamentally change the way we build intelligent systems. That being said, we expect the techniques we develop in this work to have a much broader, and even more immediate, applicability, by handling other use cases which are challenging today, such as automated decisions on historical data, high throughput interactive query workloads, low latency streaming, and secure big data processing.
 
 At the same time, our intention is not to build a replacement for existing highly successful systems that already perform real-time decisions on live data, such as high-frequency trading and real-time ad bidding. These systems are highly optimized for the task at hand, and, in many cases, took many years and billions of dollars to build. Instead, our goal is to dramatically lower the cost and time to develop the next wave of such applications. This is similar to the way Hadoop and Spark did not originally target the specialized systems to index the web, but focused on democratizing big data processing, by enabling virtually everyone to build new big data applications.
