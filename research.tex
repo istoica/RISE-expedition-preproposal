@@ -26,17 +26,17 @@ Hadoop, Spark & Average & Average & Weak & Yes\\
 
 \subsection{Systems}
 
-To meet the performance and the functionality targets we need to build a new software stack. That software stack should at a minimum, in similarity with our prior work on the Berkeley Data Analytics Stack (BDAS), enable developers to write sophisticated applications, including ML and graph processing. Furthermore, such a stack should achieve the following properties when compared to previous stacks such as BDAS, Spark~\cite{spark}, and Hadoop~\cite{murthy2011architecture}:
+To meet the performance and the functionality targets we need to build a new software stack. That software stack should at a minimum, in similarity with our prior work on the Berkeley Data Analytics Stack (BDAS), enable developers to write sophisticated applications, including deep learning and model serving. Such a stack should achieve the following properties when compared to previous stacks such as BDAS, Spark~\cite{spark}, and Hadoop~\cite{murthy2011architecture}:
 
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-\item Provide similar functionality to Spark, i.e., enable developers to write sophisticated application, including ML and graph processing applications.
+\item Provide similar functionality to Spark, i.e., enable developers to write sophisticated applications, including ML and graph processing applications.
 \item Achieve 100x lower query latency, and 1,000x higher throughput.
-\item Provide fine-grain reads and writes to better support applications such as model serving and Deep Learning (which are not supported well in Spark).
+\item Provide fine-grain reads and writes to better support new applications such as deep learning and model serving (which are poorly supported by general purpose big data stacks, such as Spark).
 \end{itemize}
 
-To satisfy these requirements, we need to re-architect today's data computation engines, such as Spark. This includes parallelizing the control plane, supporting new computation models, besides the traditional Bulk Synchronous Protocol (BSP) model, and providing support for fine-grain updates. Increasing concurrency for both computation and access to storage while preserving the fault tolerance properties of existing cluster computing frameworks will require new techniques and algorithms.
+To satisfy these requirements, we plan to build a highly modular architecture around a kernel that will provide very high performance scheduling and resource management. This approach is akin building a {\em microkernel} for big data processing frameworks. This will require us to re-architect today's monolithic data computation engines, such as Spark. This includes parallelizing the control plane, supporting new computation models, besides the traditional Bulk Synchronous Protocol (BSP) model, and providing support for fine-grain updates. Increasing concurrency for both computation and access to storage while preserving the fault tolerance properties of existing cluster computing frameworks will require new techniques and algorithms. 
 
-We intend to build an abstraction that combines the best of today's big data storage abstractions, such as HDFS, pub-sub systems, such as Kafka, and NoSQL serving layers, such as Cassandra. This would obviate today's need for transferring data between different storage layers. The system would be optimized to be able to handle read-heavy workloads, which existing systems such as HBase are poor at (due to structures such as LSM-trees). The system should be pluggable so that advanced logic can be added on top of the serving layer, enabling advanced machine learning predictions. 
+In addition, we intend to build an abstraction that combines the best of today's big data storage abstractions, such as HDFS, pub-sub systems, such as Kafka, and NoSQL serving layers, such as Cassandra. This would obviate today's need for transferring data between different storage layers. The system would be optimized to be able to handle read-heavy workloads, which existing systems such as HBase are poor at (due to structures such as LSM-trees). The system should be pluggable so that advanced logic can be added on top of the serving layer, enabling advanced machine learning predictions. 
 
 \subsection{Security} 
 
