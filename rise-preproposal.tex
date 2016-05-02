@@ -10,6 +10,8 @@
 \renewcommand*\familydefault{\sfdefault} 
 \usepackage{outlines}
 \usepackage{setspace}
+\usepackage{enumitem}
+
 
 %\usepackage[dvips]{color}
 %\usepackage[xdvi]{graphicx}
@@ -106,28 +108,40 @@
 \end{center}
 
 {%\large
-\setstretch{1.3}
-{\bf Intellectual Merit:}  Today, virtually every organization collects an ever increasing amount of data with one goal in mind:  extract value out of this data. The past decade has seen huge advances in big data, with a myriad of analytics systems, algorithms, and applications being dveeloped and deployed at scale. These advances led to the creation of new business models (e.g., Facebook, Twitter), disruption of existing industries (e.g, Amazon, Uber, and Airbnb), and rapid progress in research (cancer genomics, astronomy, social sciences).
+\setstretch{1.1}
+{\bf Intellectual Merit:}  In just ten short years, the development of the open source big data processing systems, such as Hadoop, Hive, Storm, and more recently Spark and Kafka have fundamentally transformed daily practices in business and science. These systems have enabled the creation of new business models (e.g., Facebook, Twitter), the disruption of existing industries (e.g, Amazon, Uber, and Airbnb), and rapid progress in scientific research (cancer genomics, astronomy, social sciences). 
+%\jmh{you'll need citations for the research to make NSF happy.  is there a Science or Nature paper that surveys big data in science?  i did a little search for Hadoop in Science and Nature on Google scholar and got a few hits like this: http://www.nature.com/nature/journal/v498/n7453/full/498255a.html}
 
-Despite these impressive advances, we are still far from realizing the full promise of big data. With a few notable exceptions, most companies struggle with unlocking the value from their data. As such, there is a huge gulf between the existing state-of-affairs and the ``holy grail'' of every organization when it comes to data: make intelligent decisions to improve everything from its business processes to services and products, as well as creating new products and services. 
+Today, we are finding ourselves at another inflection point in big data processing that will define the next decade. This change is driven by three trends:
 
-But just making decisions on data is not enough. What will truly revolutionize big data processing is {\em making these decisions in real time at global scale on the latest available data, while preserving the privacy of users and ensuring application security}. Indeed, slow decisions on stale data are of limited value, if any. Similarly, the lack of privacy and security can lead to the demise of a service or product. 
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item Our world is becoming ever more connected, with sensors being now embedded in buildings, appliances, engines, wearable devices, clothes and more. With many of these sensors being connected to the Internet we can now sense the world around us in real-time at unprecedented scale.
+\item With the advent of drones and self-driving cars we are now able not only to observe, but to make automated decisions that impact the physical world.
+\item The success of applications such as high-frequency trading and ad bidding have demonstrated the tremendous value of making real-time decisions on live data.
+\end{itemize}
 
-The ability to make decisions on live data will fundamentally change the way we interact with the physical word, and accelerate the scientific discoverys by enabling rapid exploration and testing of a solution space. To realize this vision we will need to make significant advances in three areas:
-\bi
-\item  {\em Systems:} We will design and build cluster computing platforms that will provide orders-of-magnitude lower latency and higher throughput than existing platforms, such as Spark. 
+These trends give us a glimpse of a future in which we can sense the world around us, ingest information, analyze it, and make decisions in \emph{real-time}.  
+%The ability to make decisions on live data can fundamentally change the way we interact with the physical word, and accelerate scientific discovery by enabling rapid exploration and testing of a solution space. 
+This would enable a new categories of applications that were never possible before, such as zero-time defense against Internet attacks, coordinated fleets of drones, real-time infectious disease diagnosis and tracking, early earthquake warning, and many others.
 
-\item {\em Machine Learning:} We will build new on-line machine learning algorithms that are robust to noisy data and unforeseen inputs. Robust algorithms are necessary to enable automated decisions for critical applications, such as zero-time defense against Internet attacks, or coordinating a fleet of autonomous cars or drones. 
+However, to realize this grand promise we need to develop new open source software tools, algorithms, and hardware that will power the next generation of data applications---the same way Hadoop, and more recently Spark, have powered big data analytics over the past decade. This will require us to pursue significant advances in three areas:
 
-\item {\em Security:} We will develop new applications and systems that ensure users' privacy and applications' security without impacting either their functionality or performance. In fact, providing strong privacy will help increase the value delivered by these applications, as it will incentivize more users to use use them. 
-\ei
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+\item  {\em Systems:} Build scalable data analytics tools that provide orders-of-magnitude lower latency and higher throughput than existing platforms, such as Spark. The tools must be able to form asynchronous, closed-loop flows: from signals to models to actuation back to signals, without %pausing for compute barriers or 
+expensive coordination.
+
+\item {\em Machine Learning:} Develop on-line machine learning algorithms that are robust to noisy data and unforeseen inputs. Robust algorithms are necessary to enable automated decisions for critical applications, such as zero-time defense against Internet attacks, or coordinating a fleet of autonomous cars or drones.
+
+\item {\em Security:} Ensure users' privacy and applications' security without impacting either their functionality or performance. Many real-time applications co-exist with humans in physical space, implying significant risks of privacy breaches and potential physical harm---in healthcare, transit, manufacturing, and so on.  
+%Today, new applications are increasingly incubated in public clouds to take advantage of elasticity and cost effectiveness. Unfortunately this exposes these sensitive applications to security risks and limitations: cloud-wide security leaks, malicious employees of cloud infrastructure, and regulatory restrictions on public cloud usage.  
+As the value of these applications increases, providing strong security becomes a necessity. Furthermore, strong privacy will increase the value delivered by these applications, as it will incentivize more users to use them.
+\end{itemize}
 
 %While there exist a few solutions that make real-time decisions on live data, notably in the domains of high-frequency trading and ad bidding, these solutions are highly specialized (on-off), and have taken years and huge resources to develop. The goal of the proposed work is to dramatically lower the barrier of building such solutions by developing a general-purpose secure real-time decision stack (SRDS). SRDS will enable many more people to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
 
-{\bf Boarder Impact:} Enabling real-time decisions on live data will lead to a phase transition in data processing, similar to the transition from small to big data. Like big data led to dramatically better results, even when using traditional algorithms, we believe that real-time processing on live data will lead to qualitatively superior results, by enabling rapid exploration of the search space and continuous adaptation to changes in the environment (e.g., enabling large-scale, reinforced learning in real time). 
+{\bf Broader Impact:} Enabling real-time decisions on live data will lead to a phase transition in data processing, similar to the transition from small to big data. Like big data led to dramatically better results even when using traditional algorithms, we believe that real-time processing on live data will lead to qualitatively superior results, by enabling rapid exploration of the search space and continuous adaptation to changes in the environment (e.g., enabling large-scale, reinforced learning in real time).
 
-Furthermore, we aim to develop a suite of software tools and algorithms which will dramatically lower the barrier for organizations and indiviudals alike to build decision and predictive analytics applications. Like Spark and Mesos before, we hope these tools will broaden research participation, allowing students and researchers at all schools to perform sophysticated data analysis and contribute to improving these tools. Lastly, the participants in this project will work directly to increase the participation of under-represented populations in engineering and scientific disciplines through their leadership effort in the community (e.g., via meetups, tech camps, Massive Open Online Courses) and on campus.
-
+Furthermore, we aim to develop a suite of software tools and algorithms which will dramatically lower the barrier for organizations and individuals alike to build decision and predictive analytics applications. Like Spark and Mesos before, we hope these tools will broaden research participation, allowing students and researchers across many disciplines to perform sophisticated data analysis and contribute to improving these tools. Lastly, the participants in this project will work directly to increase the participation of under-represented populations in engineering and scientific disciplines through their leadership effort in the community (e.g., via meetups, tech camps, Massive Open Online Courses) and on campus.
 
 % do not get rid of the following linebreak!!
 
@@ -144,17 +158,32 @@ Furthermore, we aim to develop a suite of software tools and algorithms which wi
 \begin{outline}
 \section{Introduction}
 
-\subsection{Our Vision}
+\subsection{Our Vision} 
 
-Today, virtually every organization collects an ever increasing amount of data with the belief that (1) more data equates more ``value'', and (2) more data makes it easier to unlock this value. The former belief has been engendered by companies like Google and Facebook that have successfully leveraged big data to create new, innovative businesses, and companies like Amazon, Uber, and Airbnb that have built data products to disrupt existing industries. The latter belief was originally emphasized by the now famous quote attributed to Google's Peter Norvig ``more data beats better algorithms'', and more recently by the rapid advances in Deep Learning. 
+Over the past decade, big data analysis and applications have revolutionized practices in business and science. It enabled new businesses (e.g., Google, Facebook), helped disrupt existing industries (e.g., Amazon, Airbnb, Uber), and accelerate scientific discovery (e.g., cancer genomics, astronomy).
 
-Over the past decade, the need for processing larger and larger amounts of data has led to the development of a plethora of cluster computing frameworks--including Hadoop, Spark, Storm, Impala, just to name a few--that have dramatically improved our ability to perform advanced analytics on big data. In turn, this allowed organizations to uncover insights not available before, and use these insights to build successful data products, such as personalized recommendations, advertisement targeting, drug discovery, and fitness applications.
+Today, we are seeing the glimpse of the next data revolution, which is driven by three trends. First, there is an ever increasing number of sensors collecting data in real-time. Second, there is a growing number of devices such as self-driving cars and drones that can operate autonomously ore semi-autonomously in real world. Third, there is a continuous drive to provide faster and faster results incorporating fresher and fresher data. Search engines like Google and Bing provide now sub-second response times and return results containing breaking news and sport scores. Similarly, navigation systems like Waze provide up to date traffic information, including congestion, accidents, and speed traps.
 
-Despite these impressive advances, we are still far from realizing the full promise of big data. With a few notable exceptions, most companies struggle with unlocking the value from their data. As such, there is a huge gulf between the existing state-of-affairs and the ``holy grail'' of every organization when it comes to data: make intelligent decisions to improve everything from its business processes to services and products, as well as creating new products and services. 
+These trends project a future in which we can sense the world around us, ingest information, analyze it, and make decisions in real-time. The ability to make decisions on live data can fundamentally change the way we interact with the physical word, and accelerate scientific discovery by enabling rapid exploration and testing of a solution space.
 
-But just making decisions on data is not enough. What will truly revolutionize big data processing is making these decisions in real time at global scale on the latest available data, while preserving the privacy of users and ensuring application security. Indeed, slow decisions on stale data are of limited value, if any. Similarly, the lack of privacy and security can lead to the demise of a service or product.
+While there are few examples of real-time decisions on live data, two of them stand out as they power hugely successful businesses: high-frequency trading (HFT), and real-time ad targeting systems. HFT is now a key component of today’s financial markets being responsible for billion dollar trading decisions daily. HFT systems often include proprietary wide area networks, hardware and software stacks, as they they strive to to update financial data close to the speed-of-light, and make microsecond level decisions. Similarly, real-time ad targeting systems power an ever-increasing fraction of the online ad industry. These are complex, global-scale systems, which are part of an even more complex ecosystem, including ad networks, mobile exchanges, and third-party ad tracking and serving systems. While there is relatively little public information about the performance of these systems, there has been a continuous drive towards real-time ad targeting and bidding with sub-second latencies.
 
-While there exist a few solutions that make real-time decisions on live data, notably in the domains of high-frequency trading and ad bidding, these solutions are highly specialized (on-off), and have taken years and huge resources to develop. The goal of the proposed work is to dramatically lower the barrier of building such solutions by {\bf developing a general-purpose secure real-time decision stack (SRDS)}. SRDS will enable virtually everyone to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
+But this is only the beginning. The combination of real-time decisions on live data, sensing, and autonomous devices will enable a new categories of applications that were never possible before, such as zero-time defense against Internet attacks, coordinated fleets of drones, real-time infectious disease diagnosis and tracking, early earthquake warning, and many others.
+
+However, to enable these applications we need a new generation of systems, tools, and algorithms that far surpass the capabilities of the existing ones.  Furthermore, we need these tools to be open and available to everyone, the same way the big data analytics tools, such as Hadoop and Spark, are available today.  As such, the goal of the proposed work is to dramatically lower the barrier of building such applications by {\bf developing a general-purpose secure real-time decision stack (SRDS)}. SRDS will enable virtually everyone to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
+
+
+%Today, virtually every organization collects an ever increasing amount of data with the belief that (1) more data equates more ``value'', and (2) more data makes it easier to unlock this value. The former belief has been engendered by companies like Google and Facebook that have successfully leveraged big data to create new, innovative businesses, and companies like Amazon, Uber, and Airbnb that have built data products to disrupt existing industries. The latter belief was originally emphasized by the now famous quote attributed to Google's Peter Norvig ``more data beats better algorithms'', and more recently by the rapid advances in Deep Learning. 
+
+%Over the past decade, the need for processing larger and larger amounts of data has led to the development of a plethora of cluster computing frameworks--including Hadoop, Spark, Storm, Impala, just to name a few--that have dramatically improved our ability to perform advanced analytics on big data. In turn, this allowed organizations to uncover insights not available before, and use these insights to build successful data products, such as personalized recommendations, advertisement targeting, drug discovery, and fitness applications.
+
+%Despite these impressive advances, we are still far from realizing the full promise of big data. With a few notable exceptions, most companies struggle with unlocking the value from their data. As such, there is a huge gulf between the existing state-of-affairs and the ``holy grail'' of every organization when it comes to data: make intelligent decisions to improve everything from its business processes to services and products, as well as creating new products and services. 
+
+%But just making decisions on data is not enough. What will truly revolutionize big data processing is making these decisions in real time at global scale on the latest available data, while preserving the privacy of users and ensuring application security. Indeed, slow decisions on stale data are of limited value, if any. Similarly, the lack of privacy and security can lead to the demise of a service or product.
+
+%While there exist a few solutions that make real-time decisions on live data, notably in the domains of high-frequency trading and ad bidding, these solutions are highly specialized (on-off), and have taken years and huge resources to develop. 
+
+%The goal of the proposed work is to dramatically lower the barrier of building such solutions by {\bf developing a general-purpose secure real-time decision stack (SRDS)}. SRDS will enable virtually everyone to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
 
 \subsection{Problems to be Solved}
 
