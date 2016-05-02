@@ -113,33 +113,39 @@
 %\jmh{you'll need citations for the research to make NSF happy.  is there a Science or Nature paper that surveys big data in science?  i did a little search for Hadoop in Science and Nature on Google scholar and got a few hits like this: http://www.nature.com/nature/journal/v498/n7453/full/498255a.html}
 
 Today, we are finding ourselves at another inflection point in big data processing that will define the next decade. This change is driven by three trends:
-
+\begin{quote}
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-\item Our world is becoming ever more connected, with sensors being now embedded in buildings, appliances, engines, wearable devices, clothes and more. With many of these sensors being connected to the Internet we can now sense the world around us in real-time at unprecedented scale.
-\item With the advent of drones and self-driving cars we are now able not only to observe, but to make automated decisions that impact the physical world.
+\item Our world is becoming ever more connected, with sensors embedded in buildings, appliances, engines, clothes, and more.  Connected to the Internet, these sensors observe the world around us in \emph{real-time} at unprecedented \emph{scale}.
+\item With the advent of drones, self-driving cars, and smart buildings and infrastructure we are now able not only to observe, but to make \emph{automated decisions} that impact the physical world.
 \item The success of applications such as high-frequency trading and ad bidding have demonstrated the tremendous value of making real-time decisions on live data.
 \end{itemize}
-
-These trends give us a glimpse of a future in which we can sense the world around us, ingest information, analyze it, and make decisions in \emph{real-time}.  
+\end{quote}
+These trends give us a glimpse of a future in which we can sense the world around us, ingest information, analyze it, and make automated decisions in \emph{real-time}.  
 %The ability to make decisions on live data can fundamentally change the way we interact with the physical word, and accelerate scientific discovery by enabling rapid exploration and testing of a solution space. 
-This would enable a new categories of applications that were never possible before, such as zero-time defense against Internet attacks, coordinated fleets of drones, real-time infectious disease diagnosis and tracking, early earthquake warning, and many others.
+This would enable a new categories of applications that were not possible before, such as zero-time defense against Internet attacks, coordinated fleets of drones, real-time infectious disease diagnosis and tracking, early earthquake response, and many others.
 
 {\bf Intelectual merit:} To realize this grand promise we need to develop new open source software tools, algorithms, and hardware that will power the next generation of data applications---the same way Hadoop, and more recently Spark, have powered big data analytics over the past decade. This will require us to pursue significant advances in three areas:
-
+\begin{quote}
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-\item  {\em Systems:} Build scalable data analytics tools that provide orders-of-magnitude lower latency and higher throughput than existing platforms, such as Spark. The tools must be able to form asynchronous, closed-loop flows: from signals to models to actuation back to signals, without %pausing for compute barriers or 
-expensive coordination.
+\item  {\em Systems:} Build scalable data analytics tools that provide orders-of-magnitude lower latency and higher throughput than existing platforms, such as Spark. These tools must be able to close the loop between data, models, and decisions reliably and at scale.
+% The tools must be able to form asynchronous, closed-loop flows: from signals to models to actuation back to signals, without %pausing for compute barriers or 
+% expensive coordination.
 
-\item {\em Machine Learning:} Develop on-line machine learning algorithms that are robust to noisy data and unforeseen inputs. Robust algorithms are necessary to enable automated decisions for critical applications, such as zero-time defense against Internet attacks, or coordinating a fleet of autonomous cars or drones.
+\item {\em Machine Learning:} Develop on-line machine learning algorithms that are robust to noisy data and unforeseen inputs and capable of responding in real-time.  These requirements are essential in new applications such defending cyber infrastructure or operating a fleet of autonomous vehicles.
 
-\item {\em Security:} Ensure users' privacy and applications' security without impacting either their functionality or performance. Many real-time applications co-exist with humans in physical space, implying significant risks of privacy breaches and potential physical harm---in healthcare, transit, manufacturing, and so on.  
+\item {\em Security:} Ensure user privacy and application security without impacting functionality or performance. 
+Many real-time applications touch sensitive data and co-exist with humans in physical space, implying significant risks of privacy breaches and potential physical harm.  
+% By ensuring privacy and security without compromising functionality, we will enable new applications.
+% ---in healthcare, transit, manufacturing, and so on.  
 %Today, new applications are increasingly incubated in public clouds to take advantage of elasticity and cost effectiveness. Unfortunately this exposes these sensitive applications to security risks and limitations: cloud-wide security leaks, malicious employees of cloud infrastructure, and regulatory restrictions on public cloud usage.  
-As the value of these applications increases, providing strong security becomes a necessity. Furthermore, strong privacy will increase the value delivered by these applications, as it will incentivize more users to use them.
+% As the value of these applications increases, providing strong security becomes a necessity. Furthermore, strong privacy will increase the value delivered by these applications, as it will incentivize more users to use them.
 \end{itemize}
+\end{quote}
 
 %While there exist a few solutions that make real-time decisions on live data, notably in the domains of high-frequency trading and ad bidding, these solutions are highly specialized (on-off), and have taken years and huge resources to develop. The goal of the proposed work is to dramatically lower the barrier of building such solutions by developing a general-purpose secure real-time decision stack (SRDS). SRDS will enable many more people to build sophisticated decision and predictive analytics applications which will fundamentally change the way we interact with our world, and unlock massive value from the ever increasing amount of data collected by individuals and organizations alike.
 
-{\bf Broader Impact:} Enabling real-time decisions on live data will lead to a phase transition in data processing, similar to the transition from small to big data. Like big data led to dramatically better results even when using traditional algorithms, we believe that real-time processing on live data will lead to qualitatively superior results, by enabling rapid exploration of the search space and continuous adaptation to changes in the environment (e.g., enabling large-scale, reinforced learning in real time).
+{\bf Broader Impact:} Enabling real-time decisions on live data will lead to a phase transition in data processing, similar to the transition from small to big data. Just as big data led to dramatically better results even when using traditional algorithms, 
+we believe that real-time processing on live data will lead to qualitatively superior results, by enabling rapid exploration of the search space and continuous adaptation to changes in the environment (e.g., enabling large-scale, reinforced learning in real time).
 
 Furthermore, we aim to develop a suite of software tools and algorithms which will dramatically lower the barrier for organizations and individuals alike to build decision and predictive analytics applications. Like Spark and Mesos before, we hope these tools will broaden research participation, allowing students and researchers across many disciplines to perform sophisticated data analysis and contribute to improving these tools. Lastly, the participants in this project will work directly to increase the participation of under-represented populations in engineering and scientific disciplines through their leadership effort in the community (e.g., via meetups, tech camps, Massive Open Online Courses) and on campus.
 
